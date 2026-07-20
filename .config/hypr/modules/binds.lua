@@ -32,7 +32,7 @@ hl.bind("ALT SHIFT + F12", hl.dsp.exec_cmd("grim -t png -l 0 -g \"$(slurp)\" " .
 
 hl.bind("ALT + K", hl.dsp.killactive())
 hl.bind("ALT + W", hl.dsp.killactive())
-hl.bind("ALT + M", hl.dsp.exit())
+hl.bind("ALT + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
 hl.bind("ALT + F", hl.dsp.toggle({ fullscreen = 1 }))
 hl.bind("ALT + V", hl.dsp.toggle({ floating = true }))
 
