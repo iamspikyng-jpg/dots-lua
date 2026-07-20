@@ -2,7 +2,7 @@
 
 local home = os.getenv("HOME")
 
-hyprconfig({
+hl.config({
   plugin = {
     hyprbars = {
       bar_height = 33,
