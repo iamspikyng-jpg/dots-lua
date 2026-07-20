@@ -19,8 +19,14 @@ Hyprland -c ~/.config/hypr/hyprland.lua
 ## Restore (if something breaks)
 
 ```bash
+# 1. Remove installed config
 rm -rf ~/.config/hypr ~/.config/kitty
+
+# 2. Restore backup
 cp -r ~/.config/hypr.bak ~/.config/hypr
+
+# 3. Remove cloned repo
+rm -rf ~/dots-lua
 ```
 
 ## Keybinds
