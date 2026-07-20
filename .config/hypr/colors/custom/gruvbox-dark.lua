@@ -1,0 +1,18 @@
+return {
+  bg0 = "rgba(282828ff)",
+  bg1 = "rgba(32302fff)",
+  bg2 = "rgba(3c3836ff)",
+  bg3 = "rgba(504945ff)",
+  bg4 = "rgba(665c54ff)",
+  fg = "rgba(ebdbb2ff)",
+  red    = "rgba(fb4934ff)",
+  orange = "rgba(fe8019ff)",
+  yellow = "rgba(d79921ff)",
+  green  = "rgba(b8bb26ff)",
+  aqua   = "rgba(8ec07cff)",
+  blue   = "rgba(83a598ff)",
+  purple = "rgba(d3869bff)",
+  grey0  = "rgba(928374ff)",
+  grey1  = "rgba(a89984ff)",
+  grey2  = "rgba(bdae93ff)",
+}

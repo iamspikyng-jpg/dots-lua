@@ -1,0 +1,15 @@
+@import "colors/colors.css";
+
+* { background-color: transparent; text-color: @text; }
+
+window { background-color: alpha(@base, 0.9); border: 1px solid alpha(@muted, 0.2); border-radius: 14px; padding: 8px; width: 400px; location: center; anchor: center; }
+mainbox { spacing: 4px; children: [inputbar, listview]; }
+inputbar { background-color: @surface; border: 1px solid alpha(@muted, 0.15); border-radius: 10px; padding: 10px 14px; spacing: 8px; children: [entry, case-indicator]; }
+entry { text-color: @text; font: "JetBrainsMono Nerd Font 14"; placeholder-color: @muted; placeholder: "Type to search..."; }
+case-indicator { text-color: @muted; font: "JetBrainsMono Nerd Font 12"; }
+listview { lines: 8; columns: 1; cycle: true; dynamic: true; spacing: 2px; padding: 4px 0; }
+element { background-color: transparent; border: 1px solid transparent; border-radius: 8px; padding: 8px 12px; text-color: @text; font: "JetBrainsMono Nerd Font 13"; }
+element selected { background-color: alpha(@iris, 0.12); border-color: alpha(@iris, 0.25); text-color: @iris; }
+element-icon { size: 0.7em; padding: 0 8px 0 0; }
+scrollbar { width: 3px; background-color: transparent; handle-color: @highlight-med; border-radius: 2px; }
+message { background-color: @surface; border-radius: 8px; padding: 6px 10px; text-color: @subtle; font: "JetBrainsMono Nerd Font 12"; }

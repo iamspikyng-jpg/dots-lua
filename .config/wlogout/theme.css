@@ -1,0 +1,24 @@
+@import "colors/colors.css";
+
+* { font-family: "JetBrainsMono Nerd Font", "SF Pro Display", sans-serif; background: transparent; }
+
+window { background: alpha(@base, 0.75); backdrop-filter: blur(20px); }
+
+button { background: alpha(@surface, 0.7); border: 1px solid alpha(@muted, 0.25); border-radius: 16px; color: @text; font-size: 28px; margin: 8px; padding: 20px 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.3); min-width: 120px; min-height: 80px; }
+button:hover { background: alpha(@iris, 0.2); border-color: @iris; color: @iris; box-shadow: 0 6px 24px alpha(@iris, 0.2); transform: translateY(-2px); }
+button:active { background: alpha(@iris, 0.35); transform: translateY(0); }
+
+button:nth-child(1) { color: @foam; border-color: alpha(@foam, 0.3); }
+button:nth-child(1):hover { background: alpha(@foam, 0.15); border-color: @foam; color: @foam; }
+button:nth-child(2) { color: @gold; border-color: alpha(@gold, 0.3); }
+button:nth-child(2):hover { background: alpha(@gold, 0.15); border-color: @gold; color: @gold; }
+button:nth-child(3) { color: @iris; border-color: alpha(@iris, 0.3); }
+button:nth-child(3):hover { background: alpha(@iris, 0.15); border-color: @iris; color: @iris; }
+button:nth-child(4) { color: @subtle; border-color: alpha(@subtle, 0.3); }
+button:nth-child(4):hover { background: alpha(@subtle, 0.15); border-color: @subtle; color: @subtle; }
+button:nth-child(5) { color: @rose; border-color: alpha(@rose, 0.3); }
+button:nth-child(5):hover { background: alpha(@rose, 0.15); border-color: @rose; color: @rose; }
+button:nth-child(6) { color: @love; border-color: alpha(@love, 0.3); }
+button:nth-child(6):hover { background: alpha(@love, 0.15); border-color: @love; color: @love; }
+
+label { color: @muted; font-size: 11px; margin-top: 4px; }

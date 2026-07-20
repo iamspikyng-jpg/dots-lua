@@ -1,0 +1,47 @@
+@import "colors/colors.css";
+
+* { font-family: "JetBrainsMono Nerd Font", "SF Pro Display", sans-serif; font-size: 13px; }
+
+.notification-row { outline: none; margin: 0; padding: 0; }
+.notification-group { margin: 6px 10px; }
+.notification-group-header { font-weight: bold; font-size: 14px; color: @subtle; padding: 4px 0; border-bottom: 1px solid alpha(@muted, 0.2); margin-bottom: 4px; }
+
+.notification { background: @surface; border: 1px solid alpha(@muted, 0.2); border-radius: 10px; margin: 4px 0; padding: 10px; transition: all 0.2s ease; }
+.notification:hover { background: @overlay; border-color: alpha(@iris, 0.3); }
+.notification-content { background: transparent; padding: 4px; }
+.close-button { background: alpha(@love, 0.15); color: @love; border-radius: 50%; padding: 2px 6px; margin: 2px; }
+.close-button:hover { background: @love; color: @base; }
+
+.notification-default-action { border-radius: 8px; padding: 6px; margin: 0; }
+.notification-default-action:hover { background: alpha(@highlight-med, 0.3); }
+.notification-action { background: alpha(@highlight-low, 0.5); border: 1px solid alpha(@muted, 0.15); border-radius: 6px; padding: 4px 12px; margin: 2px; color: @subtle; }
+.notification-action:hover { background: alpha(@iris, 0.15); color: @iris; }
+.notification-body { color: @text; }
+.notification-summary { font-weight: bold; color: @text; font-size: 14px; }
+.notification-time { color: @muted; font-size: 11px; font-style: italic; }
+
+.control-center { background: alpha(@base, 0.95); border: 1px solid alpha(@muted, 0.2); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); padding: 12px; }
+.control-center-list { background: transparent; }
+.control-center-list-placeholder { color: @muted; font-style: italic; text-align: center; padding: 40px 0; }
+
+.widget-title { color: @text; font-weight: bold; font-size: 16px; margin: 6px 0; padding: 0 4px; }
+.widget-title > button { background: alpha(@highlight-med, 0.3); border: none; border-radius: 6px; color: @subtle; padding: 4px 10px; }
+.widget-title > button:hover { background: alpha(@love, 0.15); color: @love; }
+.widget-dnd { color: @subtle; margin: 4px 0; }
+.widget-dnd > switch { background: @highlight-med; border-radius: 10px; }
+.widget-dnd > switch:checked { background: @pine; }
+.widget-label { color: @text; margin: 6px 0; }
+
+.widget-mpris { background: alpha(@overlay, 0.6); border-radius: 10px; padding: 10px; margin: 6px 0; }
+.widget-mpris-title { font-weight: bold; font-size: 14px; color: @text; }
+.widget-mpris-subtitle { color: @subtle; font-size: 12px; }
+
+.widget-volume { background: alpha(@overlay, 0.4); border-radius: 8px; padding: 8px 12px; margin: 4px 0; color: @text; }
+.widget-backlight { background: alpha(@overlay, 0.4); border-radius: 8px; padding: 8px 12px; margin: 4px 0; color: @gold; }
+
+.widget-buttons-grid { margin: 6px 0; }
+.widget-buttons-grid > button { background: alpha(@overlay, 0.5); border: 1px solid alpha(@muted, 0.15); border-radius: 10px; color: @text; font-size: 18px; padding: 12px; margin: 3px; }
+.widget-buttons-grid > button:hover { background: alpha(@iris, 0.15); border-color: alpha(@iris, 0.3); color: @iris; }
+
+.widget-inhibitors { margin: 6px 0; padding: 6px 8px; }
+.widget-inhibitors > button { background: alpha(@love, 0.1); border: 1px solid alpha(@love, 0.2); border-radius: 6px; color: @love; padding: 4px 10px; }

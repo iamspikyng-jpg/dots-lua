@@ -1,0 +1,46 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 8,
+  "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/currentlayout"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["custom/media", "tray", "cpu", "memory", "pulseaudio", "backlight", "network", "clock", "custom/power"],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "persistent_workspaces": { "1": [], "2": [], "3": [], "4": [], "5": [] }
+  },
+  "hyprland/submap": { "format": "{}", "max-length": 40, "tooltip": false },
+  "custom/currentlayout": {
+    "exec": "hyprctl getoption general:layout | awk 'NR==1 {print $2}'",
+    "interval": 5, "format": "{} ", "tooltip": false
+  },
+  "hyprland/window": { "format": "{}", "max-length": 60, "separate-outputs": true },
+  "custom/media": {
+    "format": "{icon} {}", "return-type": "json", "max-length": 50,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\"}' 2>/dev/null",
+    "interval": 2, "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next", "on-scroll-down": "playerctl previous", "smooth-scrolling-threshold": 5
+  },
+  "tray": { "spacing": 8 },
+  "cpu": { "format": " {usage}%", "interval": 5, "tooltip": true },
+  "memory": { "format": " {}%", "interval": 5, "tooltip": true },
+  "pulseaudio": {
+    "format": "{icon} {volume}%", "format-muted": " {volume}%",
+    "format-icons": { "default": ["", "", ""] },
+    "on-click": "pamixer -t", "on-scroll-up": "pamixer -i 5", "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 5, "tooltip": false
+  },
+  "backlight": {
+    "format": "{icon} {percent}%", "format-icons": ["", ""],
+    "on-scroll-up": "brightnessctl set +5%", "on-scroll-down": "brightnessctl set 5%-", "scroll-step": 5
+  },
+  "network": {
+    "format-wifi": " {essid}", "format-ethernet": " {ipaddr}/{cidr}",
+    "format-disconnected": "⚠ Disconnected", "tooltip": true, "interval": 10
+  },
+  "clock": { "format": " {:%H:%M}", "format-alt": " {:%d/%m/%Y}", "interval": 30, "tooltip": true },
+  "custom/power": { "format": "⏻", "on-click": "~/.config/hypr/scripts/wlogout.sh", "tooltip": false }
+}

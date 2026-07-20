@@ -1,0 +1,51 @@
+@import "colors/colors.css";
+
+* {
+  border: none; border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "SF Pro Display", sans-serif;
+  font-size: 13px; min-height: 0;
+}
+
+window#waybar {
+  background: alpha(@base, 0.85);
+  border-bottom: 1px solid alpha(@muted, 0.3);
+  color: @text;
+}
+
+window#waybar.empty { background: transparent; border-bottom: none; }
+
+#workspaces button {
+  padding: 0 6px; margin: 4px 2px; background: transparent;
+  color: @muted; border-radius: 6px; transition: all 0.2s ease;
+}
+#workspaces button:hover { background: alpha(@highlight-med, 0.5); color: @text; }
+#workspaces button.active { background: alpha(@iris, 0.25); color: @iris; border-bottom: 2px solid @iris; }
+#workspaces button.urgent { background: alpha(@love, 0.25); color: @love; border-bottom: 2px solid @love; }
+#workspaces button.empty { color: @muted; }
+
+#submap { background: alpha(@pine, 0.3); color: @foam; margin: 4px 6px; padding: 0 10px; border-radius: 6px; font-weight: bold; }
+#custom-currentlayout { color: @subtle; margin: 4px 4px; padding: 0 8px; }
+#window { margin: 4px 8px; padding: 0 8px; color: @subtle; font-style: italic; }
+
+#custom-media { background: alpha(@surface, 0.6); color: @rose; margin: 4px 6px; padding: 0 12px; border-radius: 8px; border: 1px solid alpha(@rose, 0.2); }
+#custom-media:hover { background: alpha(@rose, 0.15); }
+
+#tray { margin: 4px 6px; padding: 0 6px; background: alpha(@surface, 0.4); border-radius: 8px; }
+#cpu, #memory, #pulseaudio, #backlight, #network { margin: 4px 4px; padding: 0 8px; border-radius: 6px; background: alpha(@surface, 0.4); }
+#cpu { color: @foam; }
+#cpu.warning { color: @gold; }
+#cpu.critical { color: @love; }
+#memory { color: @iris; }
+#pulseaudio { color: @rose; }
+#pulseaudio.muted { color: @muted; }
+#backlight { color: @gold; }
+#network { color: @foam; }
+#network.disconnected { color: @love; }
+
+#clock { margin: 4px 6px; padding: 0 12px; background: alpha(@iris, 0.15); color: @iris; border-radius: 8px; font-weight: bold; letter-spacing: 1px; }
+
+#custom-power { margin: 4px 8px 4px 4px; padding: 0 10px; color: @love; font-size: 16px; border-radius: 8px; background: alpha(@love, 0.1); }
+#custom-power:hover { background: alpha(@love, 0.25); }
+
+tooltip { background: @surface; border: 1px solid alpha(@muted, 0.4); border-radius: 8px; }
+tooltip label { color: @text; }

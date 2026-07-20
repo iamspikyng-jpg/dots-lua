@@ -1,0 +1,17 @@
+* {
+  base: #192330;
+  surface: #252f3c;
+  overlay: #313b48;
+  muted: #495360;
+  text: #c0c8d5;
+  love: #c94f6d;
+  gold: #fe9373;
+  yellow: #dbc074;
+  pine: #7ad4d6;
+  foam: #8ebaa4;
+  blue: #719cd6;
+  iris: #baa1e2;
+  highlight-low: #3d4754;
+  highlight-med: #495360;
+  highlight-high: #495360;
+}

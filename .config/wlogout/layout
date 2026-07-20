@@ -1,0 +1,10 @@
+{
+    "layout": [
+        { "label": "lock", "action": "hyprlock -c ~/.config/hypr/hyprlock/hyprlock.conf", "text": "\uf023", "keybind": "l" },
+        { "label": "logout", "action": "hyprctl dispatch exit", "text": "\uf08b", "keybind": "e" },
+        { "label": "suspend", "action": "systemctl suspend", "text": "\uf186", "keybind": "u" },
+        { "label": "hibernate", "action": "systemctl hibernate", "text": "\uf2dc", "keybind": "h" },
+        { "label": "reboot", "action": "systemctl reboot", "text": "\uf01e", "keybind": "r" },
+        { "label": "shutdown", "action": "systemctl poweroff", "text": "\uf011", "keybind": "s" }
+    ]
+}
