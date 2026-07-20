@@ -30,11 +30,11 @@ hl.bind("ALT + SHIFT + F12", hl.dsp.exec_cmd("grim -t png -l 0 -g \"$(slurp)\" "
 
 -- ── Kill / exit / fullscreen / float ──────────────────────────────
 
-hl.bind("ALT + K", hl.dsp.killactive())
-hl.bind("ALT + W", hl.dsp.killactive())
+hl.bind("ALT + K", hl.dsp.window.close())
+hl.bind("ALT + W", hl.dsp.window.close())
 hl.bind("ALT + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
-hl.bind("ALT + F", hl.dsp.toggle({ fullscreen = 1 }))
-hl.bind("ALT + V", hl.dsp.toggle({ floating = true }))
+hl.bind("ALT + F", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
+hl.bind("ALT + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- ── Lock screen ───────────────────────────────────────────────────
 
@@ -99,24 +99,24 @@ for i = 1, 9 do
 end
 hl.bind("ALT + 0", hl.dsp.focus({ workspace = 10 }))
 
--- Move window to workspace (ALT SHIFT + [0-9])
+-- Move window to workspace (ALT + SHIFT + [0-9])
 
 for i = 1, 9 do
-  hl.bind("ALT + SHIFT + " .. i, hl.dsp.move({ workspace = i }))
+  hl.bind("ALT + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
-hl.bind("ALT + SHIFT + 0", hl.dsp.move({ workspace = 10 }))
+hl.bind("ALT + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
 -- ── Scratchpad (special workspace) ───────────────────────────────
 
-hl.bind("ALT + S", hl.dsp.toggle({ workspace = "special:scratchpad" }))
-hl.bind("ALT + SHIFT + S", hl.dsp.move({ workspace = "special" }))
+hl.bind("ALT + S", hl.dsp.workspace.toggle_special("magic"))
+hl.bind("ALT + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- ── Move focus ───────────────────────────────────────────────────
 
-hl.bind("ALT + left", hl.dsp.focus({ direction = "l" }))
-hl.bind("ALT + right", hl.dsp.focus({ direction = "r" }))
-hl.bind("ALT + up", hl.dsp.focus({ direction = "u" }))
-hl.bind("ALT + down", hl.dsp.focus({ direction = "d" }))
+hl.bind("ALT + left", hl.dsp.focus({ direction = "left" }))
+hl.bind("ALT + right", hl.dsp.focus({ direction = "right" }))
+hl.bind("ALT + up", hl.dsp.focus({ direction = "up" }))
+hl.bind("ALT + down", hl.dsp.focus({ direction = "down" }))
 
 -- ── Scroll workspaces ────────────────────────────────────────────
 
@@ -125,20 +125,20 @@ hl.bind("ALT + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- ── Move / resize windows (keyboard) ─────────────────────────────
 
-hl.bind("CTRL + ALT + LEFT", hl.dsp.resize({ width = -50, height = 0 }))
-hl.bind("CTRL + ALT + RIGHT", hl.dsp.resize({ width = 50, height = 0 }))
-hl.bind("CTRL + ALT + UP", hl.dsp.resize({ width = 0, height = -50 }))
-hl.bind("CTRL + ALT + DOWN", hl.dsp.resize({ width = 0, height = 50 }))
+hl.bind("CTRL + ALT + LEFT", hl.dsp.exec_cmd("hyprctl dispatch resizeactive -50 0"))
+hl.bind("CTRL + ALT + RIGHT", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 50 0"))
+hl.bind("CTRL + ALT + UP", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 0 -50"))
+hl.bind("CTRL + ALT + DOWN", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 0 50"))
 
-hl.bind("SUPER + SHIFT + left", hl.dsp.move({ direction = "l" }))
-hl.bind("SUPER + SHIFT + right", hl.dsp.move({ direction = "r" }))
-hl.bind("SUPER + SHIFT + up", hl.dsp.move({ direction = "u" }))
-hl.bind("SUPER + SHIFT + down", hl.dsp.move({ direction = "d" }))
+hl.bind("SUPER + SHIFT + left", hl.dsp.window.move({ direction = "left" }))
+hl.bind("SUPER + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+hl.bind("SUPER + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
+hl.bind("SUPER + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
 
 -- ── Mouse bindings (move/resize windows) ─────────────────────────
 
-hl.bind("ALT + mouse:272", hl.dsp.movewindow(), { mouse = true })
-hl.bind("ALT + mouse:273", hl.dsp.resizewindow(), { mouse = true })
+hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- ── Zoom (cursor zoom factor via callback) ───────────────────────
 
@@ -154,36 +154,36 @@ hl.bind("SUPER + SHIFT + 0", function() hl.exec_cmd("hyprctl -q keyword cursor:z
 
 -- ── Dwindle layout ───────────────────────────────────────────────
 
-hl.bind("ALT + P", hl.dsp.pseudo())
+hl.bind("ALT + P", hl.dsp.window.pseudo())
 
 -- ── Master layout ────────────────────────────────────────────────
 
-hl.bind("SUPER + M", hl.dsp.layoutmsg("addmaster"))
-hl.bind("SUPER + SHIFT + M", hl.dsp.layoutmsg("removemaster"))
-hl.bind("SUPER + H", hl.dsp.layoutmsg("mfact -0.05"))
-hl.bind("SUPER + L", hl.dsp.layoutmsg("mfact +0.05"))
+hl.bind("SUPER + M", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg addmaster"))
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg removemaster"))
+hl.bind("SUPER + H", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg mfact -0.05"))
+hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg mfact +0.05"))
 
 -- ── Scrolling layout ─────────────────────────────────────────────
 
-hl.bind("SUPER + period", hl.dsp.layoutmsg("move +col"))
-hl.bind("SUPER + comma", hl.dsp.layoutmsg("move -col"))
+hl.bind("SUPER + period", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg move +col"))
+hl.bind("SUPER + comma", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg move -col"))
 
-hl.bind("SUPER + SHIFT + period", hl.dsp.layoutmsg("movewindowto r"))
-hl.bind("SUPER + SHIFT + comma", hl.dsp.layoutmsg("movewindowto l"))
-hl.bind("SUPER + SHIFT + up", hl.dsp.layoutmsg("movewindowto u"))
-hl.bind("SUPER + SHIFT + down", hl.dsp.layoutmsg("movewindowto d"))
+hl.bind("SUPER + SHIFT + period", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg movewindowto r"))
+hl.bind("SUPER + SHIFT + comma", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg movewindowto l"))
+hl.bind("SUPER + SHIFT + up", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg movewindowto u"))
+hl.bind("SUPER + SHIFT + down", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg movewindowto d"))
 
-hl.bind("SUPER + equal", hl.dsp.layoutmsg("colresize +0.1"))
-hl.bind("SUPER + minus", hl.dsp.layoutmsg("colresize -0.1"))
-hl.bind("SUPER + c", hl.dsp.layoutmsg("colresize +conf"))
-hl.bind("SUPER + x", hl.dsp.layoutmsg("colresize -conf"))
+hl.bind("SUPER + equal", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg colresize +0.1"))
+hl.bind("SUPER + minus", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg colresize -0.1"))
+hl.bind("SUPER + c", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg colresize +conf"))
+hl.bind("SUPER + x", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg colresize -conf"))
 
-hl.bind("SUPER + p", hl.dsp.layoutmsg("promote"))
-hl.bind("SUPER + f", hl.dsp.layoutmsg("togglefit"))
-hl.bind("SUPER + s", hl.dsp.layoutmsg("swapcol r"))
-hl.bind("SUPER + a", hl.dsp.layoutmsg("swapcol l"))
+hl.bind("SUPER + p", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg promote"))
+hl.bind("SUPER + f", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg togglefit"))
+hl.bind("SUPER + s", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg swapcol r"))
+hl.bind("SUPER + a", hl.dsp.exec_cmd("hyprctl dispatch layoutmsg swapcol l"))
 
 -- Move column to workspace
 for i = 1, 3 do
-  hl.bind("SUPER + " .. i, hl.dsp.layoutmsg("movecoltoworkspace " .. i))
+  hl.bind("SUPER + " .. i, hl.dsp.exec_cmd("hyprctl dispatch layoutmsg movecoltoworkspace " .. i))
 end
