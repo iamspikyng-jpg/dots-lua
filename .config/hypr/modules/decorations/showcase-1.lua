@@ -1,0 +1,17 @@
+-- Decoration preset: showcase-1
+
+hl.config({
+  general = {
+    gaps_in = 10,
+    gaps_out = 70,
+  },
+  decoration = {
+    rounding = 10,
+    shadow = {
+      enabled = true,
+      range = 20,
+      render_power = 4,
+      sharp = false,
+    },
+  },
+})

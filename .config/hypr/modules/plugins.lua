@@ -1,0 +1,58 @@
+-- Plugin settings
+
+local home = os.getenv("HOME")
+
+hl.config({
+  plugin = {
+    ["borders-plus-plus"] = {
+      add_borders = 2,
+      ["col.border_1"] = "rgba(7ad4d6ff)",
+      ["col.border_2"] = "rgba(8ebaa4ff)",
+      border_size_1 = 2,
+      natural_rounding = true,
+    },
+    hyprbars = {
+      bar_height = 33,
+      bar_color = colors.bg1,
+      bar_blur = true,
+      bar_title_enabled = true,
+      bar_text_size = 12,
+      bar_text_font = "SF Pro Display Semibold",
+      bar_text_align = "center",
+      bar_buttons_alignment = "left",
+      bar_padding = 15,
+      bar_button_padding = 6,
+      ["col.text"] = colors.fg,
+      ["hyprbars-button"] = {
+        colors.red .. ", 15, , hyprctl dispatch killactive",
+        colors.yellow .. ", 15, , " .. home .. "/.config/hypr/scripts/hyprbars-minimize.sh",
+        colors.green .. ", 15, , hyprctl dispatch fullscreen 1",
+      },
+      on_double_click = "hyprctl dispatch fullscreen 1",
+    },
+    hyprexpo = {
+      columns = 3,
+      gap_size = 10,
+      bg_col = colors.bg0,
+      workspace_method = "first 1",
+      skip_empty = true,
+    },
+    hyprfocus = {
+      mode = "bounce",
+      bounce_strength = 0.9,
+    },
+    hyprtrails = {
+      color = "rgba(c0c8d5ff)",
+    },
+    hyprwinwrap = {
+      class = "htop-kitty",
+    },
+    hyprscrolling = {
+      column_width = 0.6,
+      fullscreen_on_one_column = true,
+      follow_focus = true,
+      focus_fit_method = 0,
+      explicit_column_widths = "0.5,0.67,0.8,1.0",
+    },
+  },
+})
