@@ -13,14 +13,14 @@ hl.window_rule({
 hl.window_rule({
   name = "chromium noblur",
   match = { class = "^()$", title = "^()$" },
-  noblur = true,
+  no_blur = true,
 })
 
 -- Fix VSCode pop-up behavior
 hl.window_rule({
   name = "vscode minsize",
   match = { class = "^(codium)$" },
-  minsize = "1 1",
+  min_size = "1 1",
 })
 
 -- Make file picker windows floating
@@ -53,7 +53,7 @@ hl.window_rule({
   match = { class = "(Xdg-desktop-portal-gtk)" },
   float = true,
   center = true,
-  no_border = true,
+  border_size = 0,
 })
 
 hl.window_rule({
@@ -67,7 +67,7 @@ hl.window_rule({
 hl.window_rule({
   name = "swaync noborder",
   match = { class = "(swaync)" },
-  no_border = true,
+  border_size = 0,
 })
 
 -- Fix XWayland dragging issues
@@ -102,8 +102,7 @@ hl.layer_rule({
   name = "waybar",
   match = { namespace = "waybar" },
   blur = true,
-  ignorezero = true,
-  ignorealpha = 0.5,
+  ignore_alpha = 0.5,
   no_anim = true,
 })
 
@@ -112,16 +111,14 @@ hl.layer_rule({
   name = "swaync control center",
   match = { namespace = "swaync-control-center" },
   blur = true,
-  ignorezero = true,
-  ignorealpha = 0.5,
+  ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
   name = "swaync notifications",
   match = { namespace = "swaync-notification-window" },
   blur = true,
-  ignorezero = true,
-  ignorealpha = 0.5,
+  ignore_alpha = 0.5,
 })
 
 -- Wlogout
