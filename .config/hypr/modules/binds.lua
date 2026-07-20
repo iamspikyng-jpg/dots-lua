@@ -32,8 +32,8 @@ hl.bind("ALT + SHIFT + F12", hl.dsp.exec_cmd("grim -t png -l 0 -g \"$(slurp)\" "
 
 hl.bind("ALT + K", hl.dsp.window.close())
 hl.bind("ALT + W", hl.dsp.window.close())
-hl.bind("ALT + M", hl.dsp.exec_cmd("hyprctl dispatch exit"))
-hl.bind("ALT + F", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
+hl.bind("ALT + M", hl.dsp.exit())
+hl.bind("ALT + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind("ALT + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- ── Lock screen ───────────────────────────────────────────────────
