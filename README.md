@@ -7,7 +7,7 @@ Hyprland dotfiles with Lua config (Hyprland 0.55+).
 ### 0. Récupérer le repo
 
 ```bash
-git clone https://github.com/iamspikyng-jpg/dots-lua.git ~/dots-lua
+git clone -b master https://github.com/iamspikyng-jpg/dots-lua.git ~/dots-lua
 cd ~/dots-lua
 ```
 
