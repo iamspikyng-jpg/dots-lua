@@ -16,6 +16,13 @@ cp -r ~/dots-lua/.config/* ~/.config/
 Hyprland -c ~/.config/hypr/hyprland.lua
 ```
 
+## Restore (if something breaks)
+
+```bash
+rm -rf ~/.config/hypr ~/.config/kitty
+cp -r ~/.config/hypr.bak ~/.config/hypr
+```
+
 ## Keybinds
 
 | Touche | Action |
