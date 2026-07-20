@@ -2,15 +2,8 @@
 
 local home = os.getenv("HOME")
 
-hl.config({
+hyprconfig({
   plugin = {
-    ["borders-plus-plus"] = {
-      add_borders = 2,
-      ["col.border_1"] = "rgba(7ad4d6ff)",
-      ["col.border_2"] = "rgba(8ebaa4ff)",
-      border_size_1 = 2,
-      natural_rounding = true,
-    },
     hyprbars = {
       bar_height = 33,
       bar_color = colors.bg1,
