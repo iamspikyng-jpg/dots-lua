@@ -2,9 +2,13 @@
 
 Hyprland dotfiles with Lua config (Hyprland 0.55+).
 
-## Install (dans l'ordre)
+## Installation (frais — tout faire)
 
-### 1. Paquets essentiels
+```bash
+REPO_DIR="~/test-dots-main"   # ← adapte si le dossier s'appelle autrement
+```
+
+### 1. Paquets
 
 ```bash
 sudo pacman -S --needed \
@@ -18,15 +22,13 @@ sudo pacman -S --needed \
   ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 ```
 
-### 2. AUR helper + paquets
+### 2. AUR
 
 ```bash
-# yay
 sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 cd /tmp/yay-bin && makepkg -si --noconfirm && cd ~
 
-# AUR
 yay -S --needed zsh-theme-powerlevel10k zen-browser-bin brave-bin spicetify-cli exa ristretto inter-font
 ```
 
@@ -37,7 +39,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sudo ln -sf /usr/share/zsh-theme-powerlevel10k ~/.oh-my-zsh/custom/themes/powerlevel10k
 ```
 
-### 4. Hyprland plugins
+### 4. Plugins Hyprland
 
 ```bash
 hyprpm add https://github.com/hyprwm/hyprland-plugins
@@ -49,40 +51,47 @@ hyprpm enable borders-plus-plus hyprbars hyprfocus
 ### 5. Déployer les dotfiles
 
 ```bash
-# Backup
-cp -r ~/.config/hypr ~/.config/hypr.bak
+cd $REPO_DIR
 
-# Copier
-cp -r dots-lua/.config/hypr ~/.config/
-cp -r dots-lua/.config/waybar ~/.config/
-cp -r dots-lua/.config/swaync ~/.config/
-cp -r dots-lua/.config/wlogout ~/.config/
-cp -r dots-lua/.config/kitty ~/.config/
-cp -r dots-lua/.config/colorschemes ~/.config/
-cp -r dots-lua/.local/share/rofi ~/.local/share/
-cp dots-lua/.zshrc dots-lua/.zshenv dots-lua/.p10k.zsh ~/
+# Backup (si tu avais déjà une config)
+cp -r ~/.config/hypr ~/.config/hypr.bak 2>/dev/null
+
+# Copier les dossiers
+cp -r .config/hypr ~/.config/
+cp -r .config/waybar ~/.config/
+cp -r .config/swaync ~/.config/
+cp -r .config/wlogout ~/.config/
+cp -r .config/kitty ~/.config/
+cp -r .config/colorschemes ~/.config/
+cp -r .local/share/rofi ~/.local/share/
+
+# Shell dotfiles
+cp .zshrc .zshenv .p10k.zsh ~/
 
 # Rendre exécutables
 chmod +x ~/.config/waybar/scripts/launch.sh
-chmod +x ~/.config/hypr/scripts/*.sh
-chmod +x ~/.config/hypr/hyprlock/scripts/*.sh
+chmod +x ~/.config/hypr/scripts/*.sh ~/.config/hypr/hyprlock/scripts/*.sh
 chmod +x ~/.config/colorschemes/*.sh
-```
 
-### 6. Post-install
-
-```bash
 # Dossiers manquants
 mkdir -p ~/.config/swaync/icons ~/.local/bin ~/Documents/alchemy
-
-# Changer le shell
-chsh -s $(which zsh)
-
-# Redémarrer
-reboot
 ```
 
-Une fois redémarré, sélectionne Hyprland dans ton display manager.
+### 6. Lancer Hyprland
+
+```bash
+# Déconnecte-toi de la session actuelle, puis :
+Hyprland -c ~/.config/hypr/hyprland.lua
+```
+
+Ou si t'as un display manager (SDDM, GDM), sélectionne Hyprland dans la liste.
+
+### 7. Changer le shell (optionnel)
+
+```bash
+chsh -s $(which zsh)
+# déconnexion/reconnexion nécessaire
+```
 
 ## Raccourcis
 
