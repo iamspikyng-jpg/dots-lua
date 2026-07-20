@@ -53,7 +53,7 @@ hl.window_rule({
   match = { class = "(Xdg-desktop-portal-gtk)" },
   float = true,
   center = true,
-  noborder = true,
+  no_border = true,
 })
 
 hl.window_rule({
@@ -67,14 +67,14 @@ hl.window_rule({
 hl.window_rule({
   name = "swaync noborder",
   match = { class = "(swaync)" },
-  noborder = true,
+  no_border = true,
 })
 
 -- Fix XWayland dragging issues
 hl.window_rule({
   name = "xwayland drag fix",
-  match = { class = "^$", title = "^$", xwayland = true, floating = true, fullscreen = false, pinned = false },
-  nofocus = true,
+  match = { class = "^$", title = "^$", xwayland = true, floating = true, fullscreen = false, pin = false },
+  no_focus = true,
 })
 
 -- yad dialog windows
@@ -104,7 +104,7 @@ hl.layer_rule({
   blur = true,
   ignorezero = true,
   ignorealpha = 0.5,
-  noanim = true,
+  no_anim = true,
 })
 
 -- Swaync
