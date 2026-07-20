@@ -4,9 +4,14 @@ Hyprland dotfiles with Lua config (Hyprland 0.55+).
 
 ## Installation (frais — tout faire)
 
+### 0. Récupérer le repo
+
 ```bash
-REPO_DIR="~/test-dots-main"   # ← adapte si le dossier s'appelle autrement
+git clone https://github.com/iamspikyng-jpg/dots-lua.git ~/dots-lua
+cd ~/dots-lua
 ```
+
+> Si tu as téléchargé le zip, extrais-le et `cd` dans le dossier.
 
 ### 1. Paquets
 
@@ -51,7 +56,7 @@ hyprpm enable borders-plus-plus hyprbars hyprfocus
 ### 5. Déployer les dotfiles
 
 ```bash
-cd $REPO_DIR
+cd ~/dots-lua
 
 # Backup (si tu avais déjà une config)
 cp -r ~/.config/hypr ~/.config/hypr.bak 2>/dev/null
